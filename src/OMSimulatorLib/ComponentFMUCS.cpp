@@ -360,6 +360,10 @@ oms::Component* oms::ComponentFMUCS::NewComponent(const pugi::xml_node& node, om
       resources.importFromSnapshot(*it, sspVersion, snapshot, variantName);
       component->values.parameterResources.push_back(resources);
     }
+    else if(name == oms::ssp::Version1_0::ssc::meta_data)
+    {
+      // handle meta data associated with the component
+    }
     else
     {
       logError_WrongSchema(name);
