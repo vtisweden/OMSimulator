@@ -1748,6 +1748,12 @@ oms_status_enu_t oms_getWorkingDirectory(char** workingDir)
   return oms_status_ok;
 }
 
+oms_status_enu_t oms_getModelWorkingDirectory(const char* cref, char** modelDir)
+{
+  *modelDir = (char*)oms::Scope::GetInstance().getModelWorkingDirectory(cref).c_str();
+  return oms_status_ok;
+}
+
 oms_status_enu_t oms_setSolver(const char* cref, oms_solver_enu_t solver)
 {
   oms::ComRef tail(cref);

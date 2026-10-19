@@ -361,6 +361,24 @@ const std::string& oms::Scope::getWorkingDirectory()
   }
 }
 
+const std::string& oms::Scope::getModelWorkingDirectory(const oms::ComRef& cref)
+{
+  oms::ComRef tail(cref);
+  oms::ComRef front = tail.pop_front();
+
+  auto it = models_map.find(front);
+  if (it == models_map.end())
+  {
+    logError("Model \"" + std::string(front) + "\" does not exist in the scope");
+    modelDir = "";
+    return modelDir;
+  }
+
+  unsigned int index = it->second;
+  modelDir = models[index]->getTempDirectory();
+  return modelDir;
+}
+
 oms_status_enu_t oms::Scope::getElement(const oms::ComRef& cref, oms::Element** element)
 {
   if (!element)
