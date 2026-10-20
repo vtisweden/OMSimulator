@@ -120,6 +120,7 @@ OMSAPI oms_status_enu_t OMSCALL oms_getTolerance(const char* cref, double* relat
 OMSAPI oms_status_enu_t OMSCALL oms_getVariableStepSize(const char* cref, double* initialStepSize, double* minimumStepSize, double* maximumStepSize);
 OMSAPI const char* OMSCALL oms_getVersion();
 OMSAPI oms_status_enu_t OMSCALL oms_getWorkingDirectory(char** newWorkingDir);
+OMSAPI oms_status_enu_t OMSCALL oms_getModelWorkingDirectory(const char* cref, char** newModelDir);
 OMSAPI oms_status_enu_t OMSCALL oms_importFile(const char* filename, char** cref);
 OMSAPI oms_status_enu_t OMSCALL oms_importSnapshot(const char* cref, const char* snapshot, char** newCref);
 OMSAPI oms_status_enu_t OMSCALL oms_initialize(const char* cref);
